@@ -1,8 +1,18 @@
+import Image from 'next/image'
+
 export default function About() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center bg-gradient-to-br from-sky to-earth">
+        <div className="absolute inset-0 opacity-20">
+          <Image
+            src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=800&fit=crop"
+            alt="Forest landscape"
+            fill
+            className="object-cover opacity-30"
+          />
+        </div>
         <div className="text-center text-white z-10">
           <h1 className="text-5xl md:text-7xl font-header font-bold mb-6">
             Our Story
@@ -32,6 +42,14 @@ export default function About() {
               </p>
             </div>
             <div className="bg-sky rounded-2xl p-8 text-center">
+              <div className="relative w-32 h-32 mx-auto mb-4">
+                <Image
+                  src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=300&h=300&fit=crop"
+                  alt="Forest restoration"
+                  fill
+                  className="object-cover rounded-full"
+                />
+              </div>
               <div className="text-6xl font-bold text-earth mb-4">10M+</div>
               <div className="text-xl font-body text-soil">Trees Planted</div>
             </div>
@@ -47,22 +65,37 @@ export default function About() {
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="w-32 h-32 bg-earth rounded-full mx-auto mb-4 flex items-center justify-center">
-                <span className="text-4xl">👨‍💼</span>
+              <div className="relative w-32 h-32 mx-auto mb-4">
+                <Image
+                  src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=300&h=300&fit=crop"
+                  alt="Dr. Sarah Chen"
+                  fill
+                  className="object-cover rounded-full"
+                />
               </div>
               <h3 className="text-xl font-header font-bold mb-2">Dr. Sarah Chen</h3>
               <p className="font-body">Founder & CEO</p>
             </div>
             <div className="text-center">
-              <div className="w-32 h-32 bg-earth rounded-full mx-auto mb-4 flex items-center justify-center">
-                <span className="text-4xl">👩‍🔬</span>
+              <div className="relative w-32 h-32 mx-auto mb-4">
+                <Image
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop"
+                  alt="Dr. Marcus Rodriguez"
+                  fill
+                  className="object-cover rounded-full"
+                />
               </div>
               <h3 className="text-xl font-header font-bold mb-2">Dr. Marcus Rodriguez</h3>
               <p className="font-body">Chief Technology Officer</p>
             </div>
             <div className="text-center">
-              <div className="w-32 h-32 bg-earth rounded-full mx-auto mb-4 flex items-center justify-center">
-                <span className="text-4xl">👨‍🌾</span>
+              <div className="relative w-32 h-32 mx-auto mb-4">
+                <Image
+                  src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop"
+                  alt="Elena Petrov"
+                  fill
+                  className="object-cover rounded-full"
+                />
               </div>
               <h3 className="text-xl font-header font-bold mb-2">Elena Petrov</h3>
               <p className="font-body">Head of Operations</p>

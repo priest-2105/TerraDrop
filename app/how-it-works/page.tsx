@@ -1,8 +1,18 @@
+import Image from 'next/image'
+
 export default function HowItWorks() {
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center bg-gradient-to-br from-earth to-soil">
+        <div className="absolute inset-0 opacity-20">
+          <Image
+            src="https://images.unsplash.com/photo-1579829366248-204fe8413f31?w=1200&h=800&fit=crop"
+            alt="Drone technology"
+            fill
+            className="object-cover opacity-30"
+          />
+        </div>
         <div className="text-center text-white z-10">
           <h1 className="text-5xl md:text-7xl font-header font-bold mb-6">
             How It Works
@@ -36,7 +46,14 @@ export default function HowItWorks() {
                 </ul>
               </div>
               <div className="bg-sky rounded-2xl p-8 text-center">
-                <div className="text-8xl mb-4">🛰️</div>
+                <div className="relative w-32 h-32 mx-auto mb-4">
+                  <Image
+                    src="https://images.unsplash.com/photo-1579829366248-204fe8413f31?w=300&h=300&fit=crop"
+                    alt="Drone mapping"
+                    fill
+                    className="object-cover rounded-full"
+                  />
+                </div>
                 <div className="text-xl font-body text-soil">Advanced Mapping</div>
               </div>
             </div>
@@ -45,7 +62,14 @@ export default function HowItWorks() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="order-2 md:order-1">
                 <div className="bg-sky rounded-2xl p-8 text-center">
-                  <div className="text-8xl mb-4">🌱</div>
+                  <div className="relative w-32 h-32 mx-auto mb-4">
+                    <Image
+                      src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=300&h=300&fit=crop"
+                      alt="Seed preparation"
+                      fill
+                      className="object-cover rounded-full"
+                    />
+                  </div>
                   <div className="text-xl font-body text-soil">Seed Preparation</div>
                 </div>
               </div>
@@ -78,7 +102,14 @@ export default function HowItWorks() {
                 </ul>
               </div>
               <div className="bg-sky rounded-2xl p-8 text-center">
-                <div className="text-8xl mb-4">🚁</div>
+                <div className="relative w-32 h-32 mx-auto mb-4">
+                  <Image
+                    src="https://images.unsplash.com/photo-1579829366248-204fe8413f31?w=300&h=300&fit=crop"
+                    alt="Drone deployment"
+                    fill
+                    className="object-cover rounded-full"
+                  />
+                </div>
                 <div className="text-xl font-body text-soil">Drone Deployment</div>
               </div>
             </div>
@@ -87,7 +118,14 @@ export default function HowItWorks() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="order-2 md:order-1">
                 <div className="bg-sky rounded-2xl p-8 text-center">
-                  <div className="text-8xl mb-4">📊</div>
+                  <div className="relative w-32 h-32 mx-auto mb-4">
+                    <Image
+                      src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=300&h=300&fit=crop"
+                      alt="Growth monitoring"
+                      fill
+                      className="object-cover rounded-full"
+                    />
+                  </div>
                   <div className="text-xl font-body text-soil">Growth Monitoring</div>
                 </div>
               </div>

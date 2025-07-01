@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 export default function Projects() {
   const projects = [
     {
@@ -8,7 +10,7 @@ export default function Projects() {
       treesPlanted: "2.5M",
       status: "Active",
       description: "Restoring critical biodiversity corridors in the world's largest rainforest.",
-      image: "🌳"
+      image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=300&fit=crop"
     },
     {
       id: 2,
@@ -18,7 +20,7 @@ export default function Projects() {
       treesPlanted: "1.2M",
       status: "Active",
       description: "Replanting native species to protect orangutan habitats and combat deforestation.",
-      image: "🌴"
+      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop"
     },
     {
       id: 3,
@@ -28,7 +30,7 @@ export default function Projects() {
       treesPlanted: "3.8M",
       status: "Completed",
       description: "Large-scale reforestation in the northern boreal forest ecosystem.",
-      image: "🌲"
+      image: "https://images.unsplash.com/photo-1511497584788-876760111969?w=400&h=300&fit=crop"
     },
     {
       id: 4,
@@ -38,7 +40,7 @@ export default function Projects() {
       treesPlanted: "1.5M",
       status: "Active",
       description: "Restoring degraded savanna lands and creating wildlife corridors.",
-      image: "🦁"
+      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop"
     },
     {
       id: 5,
@@ -48,7 +50,7 @@ export default function Projects() {
       treesPlanted: "750K",
       status: "Active",
       description: "Connecting fragmented forest ecosystems across Central Europe.",
-      image: "🍃"
+      image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=300&fit=crop"
     },
     {
       id: 6,
@@ -58,7 +60,7 @@ export default function Projects() {
       treesPlanted: "2.0M",
       status: "Active",
       description: "Post-wildfire restoration and native eucalyptus forest recovery.",
-      image: "🦘"
+      image: "https://images.unsplash.com/photo-1511497584788-876760111969?w=400&h=300&fit=crop"
     }
   ];
 
@@ -66,6 +68,14 @@ export default function Projects() {
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center bg-gradient-to-br from-sky to-earth">
+        <div className="absolute inset-0 opacity-20">
+          <Image
+            src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200&h=800&fit=crop"
+            alt="Global reforestation"
+            fill
+            className="object-cover opacity-30"
+          />
+        </div>
         <div className="text-center text-white z-10">
           <h1 className="text-5xl md:text-7xl font-header font-bold mb-6">
             Our Projects
@@ -110,10 +120,17 @@ export default function Projects() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project) => (
               <div key={project.id} className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow">
-                <div className="bg-sky p-8 text-center">
-                  <div className="text-6xl mb-4">{project.image}</div>
-                  <div className="text-sm font-body text-soil bg-white px-3 py-1 rounded-full inline-block">
-                    {project.status}
+                <div className="relative h-48 bg-sky">
+                  <Image
+                    src={project.image}
+                    alt={project.name}
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute top-4 right-4">
+                    <div className="text-sm font-body text-soil bg-white px-3 py-1 rounded-full">
+                      {project.status}
+                    </div>
                   </div>
                 </div>
                 <div className="p-6">
@@ -154,6 +171,14 @@ export default function Projects() {
           </h2>
           <div className="grid md:grid-cols-2 gap-12">
             <div>
+              <div className="relative w-full h-64 mb-6 rounded-lg overflow-hidden">
+                <Image
+                  src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=400&fit=crop"
+                  alt="Biodiversity recovery"
+                  fill
+                  className="object-cover"
+                />
+              </div>
               <h3 className="text-2xl font-header font-bold mb-4">Biodiversity Recovery</h3>
               <p className="text-lg font-body mb-6">
                 Our reforestation projects have led to the return of 150+ species of birds, mammals, and insects to previously deforested areas.
@@ -164,6 +189,14 @@ export default function Projects() {
               </div>
             </div>
             <div>
+              <div className="relative w-full h-64 mb-6 rounded-lg overflow-hidden">
+                <Image
+                  src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&h=400&fit=crop"
+                  alt="Carbon sequestration"
+                  fill
+                  className="object-cover"
+                />
+              </div>
               <h3 className="text-2xl font-header font-bold mb-4">Carbon Sequestration</h3>
               <p className="text-lg font-body mb-6">
                 The trees we've planted are estimated to sequester over 2.5 million tons of CO2 annually, contributing to global climate goals.

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import NavigationOrb from "../components/NavigationOrb";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,6 +27,7 @@ export default function RootLayout({
     <html lang="en" className="bg-white text-soil font-body">
       <body className="min-h-screen antialiased font-body bg-white text-soil">
         {children}
+        <NavigationOrb />
       </body>
     </html>
   )
