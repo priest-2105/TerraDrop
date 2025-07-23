@@ -1,87 +1,73 @@
-'use client'
+"use client"
 
-import { useState } from 'react'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { useState } from "react"
+import Link from "next/link"
+import { motion } from "framer-motion"
+import { Home, Info, Settings, Leaf, DollarSign, Mail } from "lucide-react"
+import Logo from "./logo"
 
-const NavigationOrb = () => {
-  const [isExpanded, setIsExpanded] = useState(false)
-  const pathname = usePathname()
+export default function SideNav() {
+  const [isOpen, setIsOpen] = useState(false)
 
   const navItems = [
-    { name: 'Home', path: '/', icon: '🏠' },
-    { name: 'About', path: '/about', icon: '🌿' },
-    { name: 'How It Works', path: '/how-it-works', icon: '🚁' },
-    { name: 'Projects', path: '/projects', icon: '🌍' },
-    { name: 'Donate', path: '/donate', icon: '💚' },
-    { name: 'Contact', path: '/contact', icon: '📞' },
+    { name: "Home", href: "/", icon: Home },
+    { name: "About Us", href: "/about", icon: Info },
+    { name: "How It Works", href: "/how-it-works", icon: Settings },
+    { name: "Projects", href: "/projects", icon: Leaf },
+    { name: "Donate", href: "/donate", icon: DollarSign },
+    { name: "Contact", href: "/contact", icon: Mail },
   ]
 
-  const isActive = (path: string) => pathname === path
-
   return (
-    <div className="fixed bottom-8 right-8 z-50">
-      {/* Navigation Orb */}
-      <div className="relative">
-        {/* Radial Menu */}
-        {isExpanded && (
-          <div className="absolute bottom-0 right-0 mb-20 mr-20">
-            {navItems.map((item, index) => {
-              const angle = (index * 60) - 90 // Start from top (-90 degrees)
-              const radius = 120 // Distance from center
-              const x = Math.cos((angle * Math.PI) / 180) * radius
-              const y = Math.sin((angle * Math.PI) / 180) * radius
-
-              return (
-                <Link
-                  key={item.path}
-                  href={item.path}
-                  className={`absolute w-16 h-16 rounded-full flex items-center justify-center text-2xl transition-all duration-300 hover:scale-110 ${
-                    isActive(item.path)
-                      ? 'bg-neon text-soil shadow-lg'
-                      : 'bg-earth text-white shadow-lg hover:bg-soil'
-                  }`}
-                  style={{
-                    transform: `translate(${x}px, ${y}px)`,
-                  }}
-                  onClick={() => setIsExpanded(false)}
-                >
-                  {item.icon}
-                </Link>
-              )
-            })}
-          </div>
-        )}
-
-        {/* Main Orb Button */}
-        <button
-          onClick={() => setIsExpanded(!isExpanded)}
-          className={`w-20 h-20 rounded-full flex items-center justify-center text-3xl shadow-lg transition-all duration-300 hover:scale-110 ${
-            isExpanded
-              ? 'bg-neon text-soil rotate-45'
-              : 'bg-gradient-to-br from-earth to-soil text-white'
-          }`}
-        >
-          {isExpanded ? '✕' : '🌱'}
-        </button>
-
-        {/* Tooltip */}
-        {!isExpanded && (
-          <div className="absolute bottom-full right-0 mb-2 px-3 py-1 bg-soil text-white text-sm font-body rounded-lg whitespace-nowrap">
-            Navigation
-          </div>
-        )}
+    <motion.nav
+      initial={false}
+      animate={isOpen ? "open" : "closed"}
+      variants={{
+        open: { width: "200px" },
+        closed: { width: "64px" }, // Tailwind's w-16
+      }}
+      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+      className="fixed left-0 top-0 h-full bg-white shadow-lg z-50 flex flex-col items-start py-4 border-r border-gray-200 dark:bg-gray-900 dark:border-gray-700"
+      onMouseEnter={() => setIsOpen(true)}
+      onMouseLeave={() => setIsOpen(false)}
+    >
+      <div className="px-4 mb-8 flex items-center justify-center w-full">
+        <Link href="/" className="flex items-center gap-2">
+          <Logo className="h-8 w-8 text-earthy-green dark:text-sky-blue" />
+          <motion.span
+            variants={{
+              closed: { opacity: 0, display: "none" },
+              open: { opacity: 1, display: "block" },
+            }}
+            transition={{ duration: 0.2 }}
+            className="text-xl font-bold text-gray-800 dark:text-white whitespace-nowrap overflow-hidden font-inter"
+          >
+            TerraDrop
+          </motion.span>
+        </Link>
       </div>
-
-      {/* Background Overlay */}
-      {isExpanded && (
-        <div
-          className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40"
-          onClick={() => setIsExpanded(false)}
-        />
-      )}
-    </div>
+      <ul className="flex flex-col gap-2 w-full px-2">
+        {navItems.map((item) => (
+          <li key={item.name}>
+            <Link
+              href={item.href}
+              className="flex items-center gap-3 p-3 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors group dark:text-gray-300 dark:hover:bg-gray-800"
+            >
+              <item.icon className="h-6 w-6 text-gray-600 group-hover:text-earthy-green dark:text-gray-400 dark:group-hover:text-neon-green" />
+              <motion.span
+                variants={{
+                  closed: { opacity: 0, display: "none" },
+                  open: { opacity: 1, display: "block" },
+                }}
+                transition={{ duration: 0.2 }}
+                className="text-base font-medium whitespace-nowrap overflow-hidden font-roboto"
+              >
+                {item.name}
+              </motion.span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </motion.nav>
   )
 }
-
-export default NavigationOrb 

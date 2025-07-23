@@ -1,208 +1,213 @@
-import Image from "next/image";
+"use client"
 
-export default function Home() {
+import { Button } from "@/components/ui/button"
+import Image from "next/image"
+import Link from "next/link"
+import { motion } from "framer-motion"
+import { ArrowRight, Leaf, Zap, Globe } from "lucide-react"
+
+export default function HomePage() {
+  const fadeInAnimationVariants = {
+    initial: {
+      opacity: 0,
+      y: 100,
+    },
+    animate: (index: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: 0.05 * index,
+      },
+    }),
+  }
+
   return (
-    <main className="min-h-screen">
+    <div className="flex flex-col min-h-screen bg-background text-foreground font-roboto">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center bg-gradient-to-br from-sky via-earth to-soil overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0 opacity-20">
-          <Image
-            src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=400&fit=crop"
-            alt="Forest canopy"
-            fill
-            // className="object-cover opacity-30"
-          />
-        </div>
-        
-        <div className="text-center text-white z-10 px-6">
-          <h1 className="text-6xl md:text-8xl font-header font-bold mb-6 drop-shadow-2xl">
-            TerraDrop
-          </h1>
-          <p className="text-2xl md:text-3xl font-body max-w-4xl mx-auto mb-8 leading-relaxed">
-            Reforesting the Earth with drone-powered seeding.<br />
-            A fusion of ecology and innovation.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-            <button className="px-8 py-4 bg-neon text-soil font-header text-xl font-bold rounded-full shadow-lg hover:bg-white transition-all duration-300 hover:scale-105">
-              Learn More
-            </button>
-            <button className="px-8 py-4 border-2 border-white text-white font-header text-xl rounded-full hover:bg-white hover:text-soil transition-all duration-300 hover:scale-105">
-              Donate Now
-            </button>
-          </div>
-        </div>
-
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
-          </div>
+      <section className="relative w-full h-[calc(100vh-64px)] flex items-center justify-center text-center overflow-hidden">
+        <Image
+          src="/placeholder.svg?height=1080&width=1920"
+          alt="Drone planting trees over deforested land"
+          layout="fill"
+          objectFit="cover"
+          quality={100}
+          className="z-0"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-soil-brown/70 via-transparent to-transparent z-10" />
+        <div className="relative z-20 text-white p-4 md:p-8 max-w-4xl mx-auto">
+          <motion.h1
+            className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4 font-inter"
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            Replanting Hope, One Seed at a Time.
+          </motion.h1>
+          <motion.p
+            className="text-lg md:text-xl lg:text-2xl mb-8 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          >
+            Harnessing the power of drone technology to restore deforested lands and combat climate change.
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+          >
+            <Button
+              asChild
+              className="bg-earthy-green hover:bg-earthy-green/90 text-white px-8 py-3 text-lg rounded-full shadow-lg"
+            >
+              <Link href="/donate">
+                Donate Now <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
+          </motion.div>
         </div>
       </section>
 
-      {/* Impact Counters */}
-      <section className="py-20 px-6 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-header font-bold text-earth mb-16 text-center">
-            Our Impact
-          </h2>
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-6xl font-bold text-earth mb-4">11.8M+</div>
-              <div className="text-xl font-body text-soil mb-2">Trees Planted</div>
-              <div className="text-sm font-body text-soil opacity-75">Across 6 continents</div>
-            </div>
-            <div className="text-center">
-              <div className="text-6xl font-bold text-earth mb-4">235K</div>
-              <div className="text-xl font-body text-soil mb-2">Hectares Restored</div>
-              <div className="text-sm font-body text-soil opacity-75">Forest ecosystems</div>
-            </div>
-            <div className="text-center">
-              <div className="text-6xl font-bold text-earth mb-4">95%</div>
-              <div className="text-xl font-body text-soil mb-2">Success Rate</div>
-              <div className="text-sm font-body text-soil opacity-75">Tree survival rate</div>
-            </div>
-            <div className="text-center">
-              <div className="text-6xl font-bold text-earth mb-4">12</div>
-              <div className="text-xl font-body text-soil mb-2">Countries</div>
-              <div className="text-sm font-body text-soil opacity-75">Active projects</div>
-            </div>
+      {/* Impact Counters Section */}
+      <section className="w-full py-16 md:py-24 bg-sky-blue text-soil-brown dark:bg-gray-800 dark:text-white">
+        <div className="container mx-auto px-4 md:px-6">
+          <motion.h2
+            className="text-3xl md:text-4xl font-bold text-center mb-12 font-inter"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.6 }}
+          >
+            Our Impact So Far
+          </motion.h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            {[
+              { icon: Leaf, value: "500K+", label: "Trees Planted" },
+              { icon: Globe, value: "10+", label: "Countries Reached" },
+              { icon: Zap, value: "1000+", label: "Hectares Restored" },
+            ].map((item, index) => (
+              <motion.div
+                key={item.label}
+                className="flex flex-col items-center p-6 bg-white rounded-lg shadow-md dark:bg-gray-900 dark:shadow-none dark:border dark:border-gray-700"
+                variants={fadeInAnimationVariants}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true, amount: 0.5 }}
+                custom={index}
+              >
+                <item.icon className="h-12 w-12 text-earthy-green mb-4 dark:text-neon-green" />
+                <p className="text-5xl font-bold mb-2 font-inter">{item.value}</p>
+                <p className="text-lg font-medium">{item.label}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Mission Section */}
-      <section className="py-20 px-6 bg-sky">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-header font-bold text-earth mb-8">
-                Our Mission
-              </h2>
-              <p className="text-xl font-body text-soil mb-6 leading-relaxed">
-                We're on a mission to restore Earth's forests at an unprecedented scale. Using cutting-edge drone technology, we plant millions of trees across deforested landscapes worldwide.
-              </p>
-              <p className="text-xl font-body text-soil mb-8 leading-relaxed">
-                Every tree we plant is tracked with GPS coordinates, monitored for growth, and contributes to biodiversity restoration and carbon sequestration.
-              </p>
-              <button className="px-8 py-4 bg-earth text-white font-header text-lg font-bold rounded-full hover:bg-soil transition-colors">
-                Learn How It Works
-              </button>
-            </div>
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <div className="text-center">
-                <div className="relative w-32 h-32 mx-auto mb-6">
-                  <Image
-                    src="https://images.unsplash.com/photo-1579829366248-204fe8413f31?w=300&h=300&fit=crop"
-                    alt="Drone technology"
-                    fill
-                    className="object-cover rounded-full"
-                  />
-                </div>
-                <h3 className="text-2xl font-header font-bold text-earth mb-4">
-                  Drone Technology
-                </h3>
-                <p className="text-soil font-body mb-6">
-                  Our autonomous drones can plant up to 100,000 trees per day with centimeter-level precision.
-                </p>
-                <div className="grid grid-cols-2 gap-4 text-sm">
-                  <div>
-                    <div className="font-bold text-earth">Speed</div>
-                    <div className="font-body text-soil">10x faster than manual</div>
-                  </div>
-                  <div>
-                    <div className="font-bold text-earth">Precision</div>
-                    <div className="font-body text-soil">GPS-guided accuracy</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+      <section className="w-full py-16 md:py-24 bg-background text-foreground">
+        <div className="container mx-auto px-4 md:px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <motion.div
+            className="space-y-6"
+            initial={{ opacity: 0, x: -100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold font-inter text-earthy-green dark:text-neon-green">
+              Our Mission
+            </h2>
+            <p className="text-lg leading-relaxed">
+              TerraDrop is dedicated to revolutionizing reforestation efforts through cutting-edge drone technology. We
+              believe in a future where technology and nature work in harmony to heal our planet. Our drones precisely
+              plant seeds in hard-to-reach areas, accelerating the restoration of vital ecosystems and combating climate
+              change at an unprecedented scale.
+            </p>
+            <p className="text-lg leading-relaxed">
+              Every seed dropped is a step towards a greener, healthier Earth. Join us in our journey to bring life back
+              to deforested landscapes and create a sustainable legacy for generations to come.
+            </p>
+            <Button
+              asChild
+              variant="outline"
+              className="border-earthy-green text-earthy-green hover:bg-earthy-green hover:text-white px-6 py-3 text-lg rounded-full dark:border-neon-green dark:text-neon-green dark:hover:bg-neon-green dark:hover:text-soil-brown bg-transparent"
+            >
+              <Link href="/about">
+                Learn More About Us <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.8 }}
+          >
+            <Image
+              src="/placeholder.svg?height=600&width=800"
+              alt="Drone dropping a seed pod"
+              width={800}
+              height={600}
+              className="rounded-xl shadow-lg object-cover w-full h-auto"
+            />
+          </motion.div>
         </div>
       </section>
 
-      {/* Featured Projects */}
-      <section className="py-20 px-6 bg-soil text-white">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-header font-bold mb-16 text-center">
-            Featured Projects
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
-              <div className="relative w-full h-48 mb-6 rounded-lg overflow-hidden">
-                <Image
-                  src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=300&fit=crop"
-                  alt="Amazon Rainforest"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <h3 className="text-2xl font-header font-bold mb-4">Amazon Rainforest</h3>
-              <p className="font-body mb-4 opacity-90">
-                Restoring critical biodiversity corridors in the world's largest rainforest.
-              </p>
-              <div className="text-neon font-bold">2.5M trees planted</div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
-              <div className="relative w-full h-48 mb-6 rounded-lg overflow-hidden">
-                <Image
-                  src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop"
-                  alt="Borneo Forest"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <h3 className="text-2xl font-header font-bold mb-4">Borneo Forest</h3>
-              <p className="font-body mb-4 opacity-90">
-                Replanting native species to protect orangutan habitats and combat deforestation.
-              </p>
-              <div className="text-neon font-bold">1.2M trees planted</div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
-              <div className="relative w-full h-48 mb-6 rounded-lg overflow-hidden">
-                <Image
-                  src="https://images.unsplash.com/photo-1511497584788-876760111969?w=400&h=300&fit=crop"
-                  alt="Canadian Boreal Forest"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <h3 className="text-2xl font-header font-bold mb-4">Canadian Boreal</h3>
-              <p className="font-body mb-4 opacity-90">
-                Large-scale reforestation in the northern boreal forest ecosystem.
-              </p>
-              <div className="text-neon font-bold">3.8M trees planted</div>
-            </div>
-          </div>
-          <div className="text-center mt-12">
-            <button className="px-8 py-4 bg-neon text-soil font-header text-lg font-bold rounded-full hover:bg-white transition-colors">
-              View All Projects
-            </button>
-          </div>
+      {/* Call to Action Section */}
+      <section className="w-full py-16 md:py-24 bg-soil-brown text-white text-center dark:bg-gray-950">
+        <div className="container mx-auto px-4 md:px-6">
+          <motion.h2
+            className="text-3xl md:text-4xl font-bold mb-6 font-inter"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.6 }}
+          >
+            Be a Part of the Solution
+          </motion.h2>
+          <motion.p
+            className="text-lg md:text-xl mb-10 max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            Your contribution directly fuels our drone reforestation missions, helping us plant more trees and restore
+            more land. Every donation makes a tangible difference.
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <Button
+              asChild
+              className="bg-neon-green hover:bg-neon-green/90 text-soil-brown px-10 py-4 text-xl rounded-full shadow-lg font-bold"
+            >
+              <Link href="/donate">
+                Support TerraDrop Today <ArrowRight className="ml-2 h-6 w-6" />
+              </Link>
+            </Button>
+          </motion.div>
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-20 px-6 bg-gradient-to-br from-earth to-soil text-white">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-header font-bold mb-8">
-            Join Our Mission
-          </h2>
-          <p className="text-xl font-body mb-12 max-w-2xl mx-auto">
-            Every donation helps us plant more trees and restore Earth's forests. 
-            Together, we can make a difference for future generations.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-neon text-soil font-header text-xl font-bold rounded-full hover:bg-white transition-all duration-300 hover:scale-105">
-              Donate Now
-            </button>
-            <button className="px-8 py-4 border-2 border-white text-white font-header text-xl rounded-full hover:bg-white hover:text-soil transition-all duration-300 hover:scale-105">
-              Get Involved
-            </button>
+      {/* Footer */}
+      <footer className="w-full py-8 bg-gray-800 text-gray-300 text-center text-sm dark:bg-gray-900 dark:text-gray-400">
+        <div className="container mx-auto px-4 md:px-6">
+          <p>&copy; {new Date().getFullYear()} TerraDrop. All rights reserved.</p>
+          <div className="flex justify-center gap-4 mt-2">
+            <Link href="/privacy" className="hover:underline">
+              Privacy Policy
+            </Link>
+            <Link href="/terms" className="hover:underline">
+              Terms of Service
+            </Link>
           </div>
         </div>
-      </section>
-    </main>
-  );
+      </footer>
+    </div>
+  )
 }
