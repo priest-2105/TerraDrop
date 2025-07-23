@@ -5,6 +5,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { ArrowRight, Leaf, Zap, Globe, CalendarDays, PlayCircle } from "lucide-react"
+import heroImage from "@/public/images/homepage/drone-quad-copter-with-high-resolution-digital-camera-green-corn-field.jpg"
 
 export default function HomePage() {
   const fadeInAnimationVariants = {
@@ -22,11 +23,11 @@ export default function HomePage() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-background text-foreground font-roboto">
+    <div className="flex flex-col min-h-screen bg-math text-soil-brown font-roboto">
       {/* Hero Section */}
       <section className="relative w-full h-[calc(100vh-0px)] flex items-center justify-center text-center overflow-hidden">
         <Image
-          src="/placeholder.svg?height=1080&width=1920"
+          src={heroImage}
           alt="Drone planting trees over deforested land"
           layout="fill"
           objectFit="cover"
@@ -105,7 +106,7 @@ export default function HomePage() {
       </section>
 
       {/* Mission Section */}
-      <section className="w-full py-16 md:py-24 bg-background text-foreground">
+      <section className="w-full py-16 md:py-24 bg-math text-soil-brown">
         <div className="container mx-auto px-4 md:px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div
             className="space-y-6"
@@ -239,7 +240,7 @@ export default function HomePage() {
       </section>
 
       {/* Visual Storytelling Section */}
-      <section className="w-full py-16 md:py-24 bg-background text-foreground">
+      <section className="w-full py-16 md:py-24 bg-math text-soil-brown">
         <div className="container mx-auto px-4 md:px-6 text-center">
           <motion.h2
             className="text-3xl md:text-4xl font-bold mb-12 font-inter text-earthy-green dark:text-neon-green"

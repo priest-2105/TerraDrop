@@ -56,6 +56,8 @@ const config = {
         "soil-brown": "#3E2C2C",
         "sky-blue": "#C8E8F4",
         "neon-green": "#39FF14",
+        "math": "#e3e4e6",
+        "math-bg": "#e3e4e6",
       },
       borderRadius: {
         lg: "var(--radius)",
