@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { ArrowRight, Leaf, Zap, Globe } from "lucide-react"
+import { ArrowRight, Leaf, Zap, Globe, CalendarDays, PlayCircle } from "lucide-react"
 
 export default function HomePage() {
   const fadeInAnimationVariants = {
@@ -24,7 +24,7 @@ export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground font-roboto">
       {/* Hero Section */}
-      <section className="relative w-full h-[calc(100vh-64px)] flex items-center justify-center text-center overflow-hidden">
+      <section className="relative w-full h-[calc(100vh-0px)] flex items-center justify-center text-center overflow-hidden">
         <Image
           src="/placeholder.svg?height=1080&width=1920"
           alt="Drone planting trees over deforested land"
@@ -151,6 +151,141 @@ export default function HomePage() {
               className="rounded-xl shadow-lg object-cover w-full h-auto"
             />
           </motion.div>
+        </div>
+      </section>
+
+      {/* Our Journey Section */}
+      <section className="w-full py-16 md:py-24 bg-sky-blue text-soil-brown dark:bg-gray-800 dark:text-white">
+        <div className="container mx-auto px-4 md:px-6">
+          <motion.h2
+            className="text-3xl md:text-4xl font-bold text-center mb-12 font-inter"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.6 }}
+          >
+            Our Journey So Far
+          </motion.h2>
+          <div className="relative">
+            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-earthy-green dark:bg-neon-green rounded-full hidden md:block" />
+            <div className="space-y-12">
+              {[
+                {
+                  year: "2018",
+                  title: "Inception & Research",
+                  description:
+                    "TerraDrop was founded with a vision to leverage drone technology for large-scale reforestation. Initial research and development focused on seed pod design and drone deployment mechanisms.",
+                  image: "/placeholder.svg?height=400&width=600",
+                  position: "left",
+                },
+                {
+                  year: "2020",
+                  title: "First Pilot Projects",
+                  description:
+                    "Successful pilot projects were conducted in deforested areas, proving the efficiency and scalability of drone seeding. We planted our first 10,000 trees.",
+                  image: "/placeholder.svg?height=400&width=600",
+                  position: "right",
+                },
+                {
+                  year: "2022",
+                  title: "Global Expansion",
+                  description:
+                    "Expanded operations to multiple countries, partnering with local communities and environmental organizations. Our impact grew exponentially, reaching over 100,000 trees planted.",
+                  image: "/placeholder.svg?height=400&width=600",
+                  position: "left",
+                },
+                {
+                  year: "2024",
+                  title: "Innovation & Future",
+                  description:
+                    "Continued innovation in AI-powered drone navigation and seed diversity. We aim to plant millions of trees annually, restoring biodiversity and combating climate change on a global scale.",
+                  image: "/placeholder.svg?height=400&width=600",
+                  position: "right",
+                },
+              ].map((item, index) => (
+                <motion.div
+                  key={item.year}
+                  className={`flex flex-col md:flex-row items-center md:items-start ${
+                    item.position === "right" ? "md:flex-row-reverse" : ""
+                  } relative`}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.5 }}
+                  transition={{ duration: 0.6, delay: 0.1 * index }}
+                >
+                  <div className="md:w-1/2 p-4 md:p-8 flex justify-center md:justify-end">
+                    <Image
+                      src={item.image || "/placeholder.svg"}
+                      alt={item.title}
+                      width={600}
+                      height={400}
+                      className="rounded-lg shadow-lg object-cover w-full max-w-md md:max-w-none"
+                    />
+                  </div>
+                  <div className="md:w-1/2 p-4 md:p-8 text-center md:text-left">
+                    <div className="absolute left-1/2 transform -translate-x-1/2 md:static md:transform-none md:ml-[-1.5rem] md:mr-[-1.5rem] bg-earthy-green dark:bg-neon-green text-white rounded-full h-10 w-10 flex items-center justify-center text-lg font-bold z-10">
+                      <CalendarDays className="h-6 w-6" />
+                    </div>
+                    <h3 className="text-2xl font-bold mb-2 font-inter mt-4 md:mt-0">
+                      {item.year}: {item.title}
+                    </h3>
+                    <p className="text-lg leading-relaxed">{item.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Visual Storytelling Section */}
+      <section className="w-full py-16 md:py-24 bg-background text-foreground">
+        <div className="container mx-auto px-4 md:px-6 text-center">
+          <motion.h2
+            className="text-3xl md:text-4xl font-bold mb-12 font-inter text-earthy-green dark:text-neon-green"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.6 }}
+          >
+            Witness the Impact: Drone Footage
+          </motion.h2>
+          <motion.div
+            className="relative w-full max-w-5xl mx-auto aspect-video rounded-xl overflow-hidden shadow-2xl group"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <Image
+              src="/placeholder.svg?height=720&width=1280"
+              alt="Drone footage thumbnail"
+              layout="fill"
+              objectFit="cover"
+              className="z-0 transition-transform duration-500 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-black/40 flex items-center justify-center z-10 group-hover:bg-black/60 transition-colors duration-300">
+              <Button
+                variant="ghost"
+                className="text-white hover:text-neon-green transition-colors duration-300"
+                size="icon"
+                aria-label="Play video"
+              >
+                <PlayCircle className="h-20 w-20 md:h-24 md:w-24" />
+              </Button>
+            </div>
+            <p className="sr-only">Click to watch drone reforestation video</p>
+          </motion.div>
+          <motion.p
+            className="mt-8 text-lg max-w-3xl mx-auto"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            See our drones in action, transforming barren landscapes into thriving forests. This footage captures the
+            precision and scale of our reforestation efforts.
+          </motion.p>
         </div>
       </section>
 

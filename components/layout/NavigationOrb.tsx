@@ -4,7 +4,7 @@ import { useState } from "react"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { Home, Info, Settings, Leaf, DollarSign, Mail } from "lucide-react"
-import Logo from "./logo"
+import Logo from "@/components/logo"
 
 export default function SideNav() {
   const [isOpen, setIsOpen] = useState(false)

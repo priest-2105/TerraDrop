@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 import { Inter, Roboto } from "next/font/google"
 import "./globals.css"
 // import { ThemeProvider } from "@/components/theme-provider"
-import SideNav from "@/components/NavigationOrb"
+import SideNav from "@/components/layout/NavigationOrb"
 
 const inter = Inter({
   subsets: ["latin"],
