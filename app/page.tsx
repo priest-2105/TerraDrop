@@ -70,7 +70,7 @@ export default function HomePage() {
       </section>
 
       {/* Impact Counters Section */}
-      <section className="w-full py-16 md:py-24 bg-sky-blue text-soil-brown dark:bg-gray-800 dark:text-white">
+      {/* <section className="w-full py-16 md:py-24 bg-sky-blue text-soil-brown dark:bg-gray-800 dark:text-white">
         <div className="container mx-auto px-4 md:px-6">
           <motion.h2
             className="text-3xl md:text-4xl font-bold text-center mb-12 font-inter"
@@ -103,10 +103,10 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Mission Section */}
-      <section className="w-full py-16 md:py-24 bg-math text-soil-brown">
+      <section className="w-full py-16 md:py-24 bg-math text-soil-brown bg-[#c0d4e5]">
         <div className="container mx-auto px-4 md:px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <motion.div
             className="space-y-6"
@@ -156,7 +156,7 @@ export default function HomePage() {
       </section>
 
       {/* Our Journey Section */}
-      <section className="w-full py-16 md:py-24 bg-sky-blue text-soil-brown dark:bg-gray-800 dark:text-white">
+      <section className="w-full py-16 md:py-24 bg-sky-blue text-[#1f1d1a] dark:bg-[#fff] dark:text-[#1f1d1a]">
         <div className="container mx-auto px-4 md:px-6">
           <motion.h2
             className="text-3xl md:text-4xl font-bold text-center mb-12 font-inter"

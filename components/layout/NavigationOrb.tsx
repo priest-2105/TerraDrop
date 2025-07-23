@@ -24,10 +24,10 @@ export default function SideNav() {
       animate={isOpen ? "open" : "closed"}
       variants={{
         open: { width: "200px" },
-        closed: { width: "64px" }, // Tailwind's w-16
+        closed: { width: "64px" },
       }}
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
-      className="fixed left-0 top-0 h-full bg-math backdrop-blur-md shadow-lg z-50 flex flex-col items-start py-4 border-r border-math"
+      className="fixed left-0 top-0 h-full bg-math backdrop-blur-md border-r-8 border-r-[#ffffff2f] z-50 flex flex-col items-start py-4  border-math"
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
@@ -51,9 +51,9 @@ export default function SideNav() {
           <li key={item.name}>
             <Link
               href={item.href}
-              className="flex items-center gap-3 p-3 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors group dark:text-gray-300 dark:hover:bg-gray-800"
+              className="flex items-center gap-3 p-3 rounded-lg  hover:bg-[#fff] transition-colors group dark:hover:bg-[#e3e4e6] text-[#1f1d1a] group-hover:text-earthy-green dark:text-[#1f1d1a] dark:group-hover:text-neon-green"
             >
-              <item.icon className="h-6 w-6 text-gray-600 group-hover:text-earthy-green dark:text-gray-400 dark:group-hover:text-neon-green" />
+              <item.icon className="h-6 w-6 text-[#1f1d1a] group-hover:text-earthy-green dark:text-[#1f1d1a] dark:group-hover:text-neon-green" />
               <motion.span
                 variants={{
                   closed: { opacity: 0, display: "none" },

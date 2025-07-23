@@ -33,7 +33,7 @@ export default function RootLayout({
       <body className={`${inter.variable} ${roboto.variable} font-sans bg-math`}>
         {/* <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange> */}
           <SideNav />
-          <main className="min-h-screen ml-16">{children}</main>
+          <main className="min-h-screen">{children}</main>
         {/* </ThemeProvider> */}
       </body>
     </html>
