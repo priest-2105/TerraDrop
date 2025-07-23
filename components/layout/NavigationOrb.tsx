@@ -27,7 +27,8 @@ export default function SideNav() {
         closed: { width: "64px" }, // Tailwind's w-16
       }}
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
-      className="fixed left-0 top-0 h-full bg-white shadow-lg z-50 flex flex-col items-start py-4 border-r border-gray-200 dark:bg-gray-900 dark:border-gray-700"
+      className="fixed left-0 top-0 h-full bg-white backdrop-blur-md shadow-lg z-50 flex flex-col items-start py-4 border-r border-gray-200
+       dark:bg-gray-900/96 dark:border-gray-700"
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
