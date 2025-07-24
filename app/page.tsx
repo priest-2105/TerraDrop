@@ -6,6 +6,12 @@ import Link from "next/link"
 import { motion } from "framer-motion"
 import { ArrowRight, Leaf, Zap, Globe, CalendarDays, PlayCircle } from "lucide-react"
 import heroImage from "@/public/images/homepage/drone-quad-copter-with-high-resolution-digital-camera-green-corn-field.jpg"
+import droneDroppingSeed from "@/public/images/homepage/hero-drone.jpg"
+import research from "@/public/images/homepage/pexels-chokniti-khongchum-1197604-2280568.jpg"
+import innovation from "@/public/images/homepage/pexels-googledeepmind-17483908.jpg"
+import expansion from "@/public/images/homepage/pexels-suzyhazelwood-1098515.jpg"
+import firstProject from "@/public/images/homepage/seeds-from-drone-2.jpg"
+
 
 export default function HomePage() {
   const fadeInAnimationVariants = {
@@ -35,7 +41,7 @@ export default function HomePage() {
           className="z-0"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-soil-brown/70 via-transparent to-transparent z-10" />
-        <div className="relative z-20 text-white p-4 md:p-8 max-w-4xl mx-auto">
+        <div className="relative z-20 text-white text-start p-4 md:p-8 max-w-4xl mx-auto">
           <motion.h1
             className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-4 font-inter"
             initial={{ opacity: 0, y: -50 }}
@@ -59,7 +65,7 @@ export default function HomePage() {
           >
             <Button
               asChild
-              className="bg-earthy-green hover:bg-earthy-green/90 text-white px-8 py-3 text-lg rounded-full shadow-lg"
+              className="bg-earthy-green hover:bg-earthy-green/90 text-[#f1f1f1] px-8 py-3 text-lg rounded-full shadow-lg"
             >
               <Link href="/donate">
                 Donate Now <ArrowRight className="ml-2 h-5 w-5" />
@@ -70,7 +76,7 @@ export default function HomePage() {
       </section>
 
       {/* Impact Counters Section */}
-      {/* <section className="w-full py-16 md:py-24 bg-sky-blue text-soil-brown dark:bg-gray-800 dark:text-white">
+      {/* <section className="w-full py-16 md:py-24 bg-sky-blue text-soil-brown dark:bg-gray-800 dark:text-[#f1f1f1]">
         <div className="container mx-auto px-4 md:px-6">
           <motion.h2
             className="text-3xl md:text-4xl font-bold text-center mb-12 font-inter"
@@ -89,7 +95,7 @@ export default function HomePage() {
             ].map((item, index) => (
               <motion.div
                 key={item.label}
-                className="flex flex-col items-center p-6 bg-white rounded-lg shadow-md dark:bg-gray-900 dark:shadow-none dark:border dark:border-gray-700"
+                className="flex flex-col items-center p-6 bg-[#f1f1f1] rounded-lg shadow-md dark:bg-gray-900 dark:shadow-none dark:border dark:border-gray-700"
                 variants={fadeInAnimationVariants}
                 initial="initial"
                 whileInView="animate"
@@ -131,7 +137,7 @@ export default function HomePage() {
             <Button
               asChild
               variant="outline"
-              className="border-earthy-green text-earthy-green hover:bg-earthy-green hover:text-white px-6 py-3 text-lg rounded-full dark:border-neon-green dark:text-neon-green dark:hover:bg-neon-green dark:hover:text-soil-brown bg-transparent"
+              className="border-earthy-green text-earthy-green hover:bg-earthy-green hover:text-[#f1f1f1] px-6 py-3 text-lg rounded-full dark:border-neon-green dark:text-neon-green dark:hover:bg-neon-green dark:hover:text-soil-brown bg-transparent"
             >
               <Link href="/about">
                 Learn More About Us <ArrowRight className="ml-2 h-5 w-5" />
@@ -145,18 +151,18 @@ export default function HomePage() {
             transition={{ duration: 0.8 }}
           >
             <Image
-              src="/placeholder.svg?height=600&width=800"
+              src={droneDroppingSeed}
               alt="Drone dropping a seed pod"
               width={800}
               height={600}
-              className="rounded-xl shadow-lg object-cover w-full h-auto"
+              className="rounded-lg object-cover w-full h-auto"
             />
           </motion.div>
         </div>
       </section>
 
       {/* Our Journey Section */}
-      <section className="w-full py-16 md:py-24 bg-sky-blue text-[#1f1d1a] dark:bg-[#fff] dark:text-[#1f1d1a]">
+      <section className="w-full py-16 md:py-24 bg-sky-blue text-[#1f1d1a] dark:bg-[#f1f1f1] dark:text-[#1f1d1a]">
         <div className="container mx-auto px-4 md:px-6">
           <motion.h2
             className="text-3xl md:text-4xl font-bold text-center mb-12 font-inter"
@@ -176,7 +182,7 @@ export default function HomePage() {
                   title: "Inception & Research",
                   description:
                     "TerraDrop was founded with a vision to leverage drone technology for large-scale reforestation. Initial research and development focused on seed pod design and drone deployment mechanisms.",
-                  image: "/placeholder.svg?height=400&width=600",
+                  image: research,
                   position: "left",
                 },
                 {
@@ -184,7 +190,7 @@ export default function HomePage() {
                   title: "First Pilot Projects",
                   description:
                     "Successful pilot projects were conducted in deforested areas, proving the efficiency and scalability of drone seeding. We planted our first 10,000 trees.",
-                  image: "/placeholder.svg?height=400&width=600",
+                  image: firstProject,
                   position: "right",
                 },
                 {
@@ -192,7 +198,7 @@ export default function HomePage() {
                   title: "Global Expansion",
                   description:
                     "Expanded operations to multiple countries, partnering with local communities and environmental organizations. Our impact grew exponentially, reaching over 100,000 trees planted.",
-                  image: "/placeholder.svg?height=400&width=600",
+                  image: expansion,
                   position: "left",
                 },
                 {
@@ -200,7 +206,7 @@ export default function HomePage() {
                   title: "Innovation & Future",
                   description:
                     "Continued innovation in AI-powered drone navigation and seed diversity. We aim to plant millions of trees annually, restoring biodiversity and combating climate change on a global scale.",
-                  image: "/placeholder.svg?height=400&width=600",
+                  image: innovation,
                   position: "right",
                 },
               ].map((item, index) => (
@@ -224,7 +230,7 @@ export default function HomePage() {
                     />
                   </div>
                   <div className="md:w-1/2 p-4 md:p-8 text-center md:text-left">
-                    <div className="absolute left-1/2 transform -translate-x-1/2 md:static md:transform-none md:ml-[-1.5rem] md:mr-[-1.5rem] bg-earthy-green dark:bg-neon-green text-white rounded-full h-10 w-10 flex items-center justify-center text-lg font-bold z-10">
+                    <div className="absolute left-1/2 transform -translate-x-1/2 md:static md:transform-none md:ml-[-1.5rem] md:mr-[-1.5rem] bg-earthy-green dark:bg-neon-green text-[#f1f1f1] rounded-full h-10 w-10 flex items-center justify-center text-lg font-bold z-10">
                       <CalendarDays className="h-6 w-6" />
                     </div>
                     <h3 className="text-2xl font-bold mb-2 font-inter mt-4 md:mt-0">
@@ -240,7 +246,7 @@ export default function HomePage() {
       </section>
 
       {/* Visual Storytelling Section */}
-      <section className="w-full py-16 md:py-24 bg-math text-soil-brown">
+      <section className="w-full py-16 md:py-24 bg-[#c0d4e5] text-soil-brown">
         <div className="container mx-auto px-4 md:px-6 text-center">
           <motion.h2
             className="text-3xl md:text-4xl font-bold mb-12 font-inter text-earthy-green dark:text-neon-green"
@@ -268,7 +274,7 @@ export default function HomePage() {
             <div className="absolute inset-0 bg-black/40 flex items-center justify-center z-10 group-hover:bg-black/60 transition-colors duration-300">
               <Button
                 variant="ghost"
-                className="text-white hover:text-neon-green transition-colors duration-300"
+                className="text-[#f1f1f1] hover:text-neon-green transition-colors duration-300"
                 size="icon"
                 aria-label="Play video"
               >
@@ -291,7 +297,7 @@ export default function HomePage() {
       </section>
 
       {/* Call to Action Section */}
-      <section className="w-full py-16 md:py-24 bg-soil-brown text-white text-center dark:bg-gray-950">
+      <section className="w-full py-16 md:py-24 bg-[#f1f1f1] text-soil-brown text-center dark:bg-[#f1f1f1]">
         <div className="container mx-auto px-4 md:px-6">
           <motion.h2
             className="text-3xl md:text-4xl font-bold mb-6 font-inter"
@@ -320,7 +326,7 @@ export default function HomePage() {
           >
             <Button
               asChild
-              className="bg-neon-green hover:bg-neon-green/90 text-soil-brown px-10 py-4 text-xl rounded-full shadow-lg font-bold"
+              className="dark:bg-[#c0d4e5  bg-[#c0d4e5] hover:bg-earthy-green/90 text-soil-brown px-10 py-4 text-xl rounded-full shadow-lg font-bold"
             >
               <Link href="/donate">
                 Support TerraDrop Today <ArrowRight className="ml-2 h-6 w-6" />
