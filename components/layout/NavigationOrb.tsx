@@ -6,6 +6,15 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Leaf, Menu, X, ChevronDown } from "lucide-react"
 
+interface NavItem {
+  name: string
+  href: string
+  dropdown?: Array<{
+    name: string
+    href: string
+  }>
+}
+
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -20,7 +29,7 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const navItems = [
+  const navItems: NavItem[] = [
     { name: "Home", href: "/" },
     {
       name: "About",
