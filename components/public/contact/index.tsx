@@ -111,7 +111,7 @@ export default function ContactPageComponent() {
                   <SelectTrigger className="w-full h-12 px-4 rounded-xl border-gray-300 focus:border-emerald-500 focus:ring-emerald-500 text-gray-500">
                     <SelectValue placeholder="Select Subject" />
                   </SelectTrigger>
-                  <SelectContent className="rounded-xl border-gray-200 shadow-lg">
+                  <SelectContent className="rounded-xl border-gray-200 bg-white shadow-lg">
                     <SelectItem value="general">General Inquiry</SelectItem>
                     <SelectItem value="partnership">Partnership Opportunity</SelectItem>
                     <SelectItem value="volunteer">Volunteer Information</SelectItem>
