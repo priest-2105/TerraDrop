@@ -22,6 +22,9 @@ const roboto = Roboto({
 export const metadata: Metadata = {
   title: "TerraDrop - Reforest the Earth with Drones",
   description: "Nonprofit organization using drone technology to plant trees and restore deforested land.",
+  icons: {
+    icon: "/favicon.ico",
+  },
 }
 
 export default function RootLayout({
@@ -31,6 +34,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/favicon.ico" />
+      </head>
       <body className={`${inter.variable} ${roboto.variable} font-sans bg-math`}>
         {/* <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange> */}
           <SideNav />
