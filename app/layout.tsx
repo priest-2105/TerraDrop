@@ -4,6 +4,7 @@ import { Inter, Roboto } from "next/font/google"
 import "./globals.css"
 // import { ThemeProvider } from "@/components/theme-provider"
 import SideNav from "@/components/layout/NavigationOrb"
+import FooterComponent from "@/components/layout/footer"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -35,6 +36,7 @@ export default function RootLayout({
           <SideNav />
           <main className="min-h-screen">{children}</main>
         {/* </ThemeProvider> */}
+        <FooterComponent />
       </body>
     </html>
   )
