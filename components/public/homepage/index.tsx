@@ -24,6 +24,7 @@ import milestoneThree from "@/public/images/homepage/pexels-suzyhazelwood-109851
 import milestoneFour from "@/public/images/homepage/pexels-googledeepmind-17483908.jpg"
 import natureImage from "@/public/images/homepage/pexels-chokniti-khongchum-1197604-2280568.jpg"
 import heroImage from "@/public/images/homepage/seeds-from-drone-2.jpg"
+import videoShot from "@/public/images/homepage/vlcsnap-2025-07-27-07h28m11s138.png"
 
 
 export default function HomePageComponent() {
@@ -410,7 +411,7 @@ export default function HomePageComponent() {
             onClick={() => setShowVideo(true)}
           >
             <Image
-              src="/placeholder.svg?height=720&width=1280&text=Drone+Footage"
+              src={videoShot}
               alt="Drone footage thumbnail"
               fill
               className="object-cover transition-transform duration-500 group-hover:scale-105"

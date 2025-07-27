@@ -24,21 +24,11 @@ export default function Navigation() {
     { name: "Home", href: "/" },
     {
       name: "About",
-      href: "/about",
-      dropdown: [
-        { name: "Our Mission", href: "/about/mission" },
-        { name: "Team", href: "/about/team" },
-        { name: "Technology", href: "/about/technology" },
-      ],
+      href: "/about"
     },
     {
       name: "Projects",
       href: "/projects",
-      dropdown: [
-        { name: "Active Projects", href: "/projects/active" },
-        { name: "Completed Projects", href: "/projects/completed" },
-        { name: "Impact Stories", href: "/projects/impact" },
-      ],
     },
     { name: "News", href: "/news" },
     { name: "Contact", href: "/contact" },

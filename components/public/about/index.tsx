@@ -5,6 +5,13 @@ import Link from "next/link"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Handshake, Eye, Sparkles, TreePine, Target } from "lucide-react"
+import heroImage from "@/public/images/homepage/seeds-from-drone-2.jpg"
+import heroImageTwo from "@/public/images/homepage/trees.jpg"
+import elara from "@/public/images/about/elara.jpg"
+import kai from "@/public/images/about/kai.jpg"
+import lena from "@/public/images/about/lena.jpg"
+import marcus from "@/public/images/about/marcus.jpg"
+
 
 export default function AboutPage() {
   const fadeInAnimationVariants = {
@@ -27,25 +34,25 @@ export default function AboutPage() {
     {
       name: "Dr. Elara Vance",
       role: "CEO & Co-founder",
-      image: "/placeholder.svg?height=200&width=200&text=Elara+Vance",
+      image: elara,
       bio: "A visionary leader with a background in environmental science and drone engineering. Passionate about scalable reforestation.",
     },
     {
       name: "Kai Chen",
       role: "CTO & Co-founder",
-      image: "/placeholder.svg?height=200&width=200&text=Kai+Chen",
+      image: kai,
       bio: "Expert in AI and robotics, leading the development of TerraDrop's autonomous planting systems.",
     },
     {
       name: "Lena Petrova",
       role: "Head of Field Operations",
-      image: "/placeholder.svg?height=200&width=200&text=Lena+Petrova",
+      image: lena,
       bio: "Oversees all global planting missions, ensuring successful deployment and ecological integrity.",
     },
     {
       name: "Marcus Thorne",
       role: "Chief Scientific Officer",
-      image: "/placeholder.svg?height=200&width=200&text=Marcus+Thorne",
+      image: marcus,
       bio: "Specializes in seed science and ecosystem restoration, guiding species selection and biodiversity efforts.",
     },
   ]
@@ -79,7 +86,7 @@ export default function AboutPage() {
       <section className="relative w-full h-[60vh] flex items-center justify-center text-center overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/placeholder.svg?height=720&width=1280&text=About+Us+Hero"
+            src={heroImage}
             alt="Lush green forest canopy"
             fill
             className="object-cover"
@@ -109,7 +116,7 @@ export default function AboutPage() {
       </section>
 
       {/* Our Story & Mission Section */}
-      <section className="w-full py-20 bg-white/80 backdrop-blur-sm">
+      <section className="w-full py-20 bg-white/80 backdrop-blur-sm py-12">
         <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div
             className="space-y-8"
@@ -153,7 +160,7 @@ export default function AboutPage() {
             transition={{ duration: 0.8 }}
           >
             <Image
-              src="/placeholder.svg?height=600&width=800&text=Our+Story"
+              src={heroImageTwo}
               alt="Team collaborating on drone technology"
               width={800}
               height={600}
@@ -191,8 +198,8 @@ export default function AboutPage() {
                 viewport={{ once: true, amount: 0.5 }}
                 custom={index}
               >
-                <div className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-emerald-200 hover:-translate-y-2">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="bg-white text-center rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-emerald-200 hover:-translate-y-2">
+                  <div className="w-16 h-16 rounded-2xl text-center mx-auto bg-gradient-to-r from-emerald-500 to-teal-600 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                     <value.icon className="h-8 w-8 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 mb-3">{value.title}</h3>
