@@ -23,7 +23,7 @@ export default function DonatePageComponent() {
       transition: {
         delay: 0.05 * index,
         duration: 0.6,
-        ease: "easeOut",
+        ease: "easeOut" as const,
       },
     }),
   }
