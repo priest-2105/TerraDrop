@@ -18,7 +18,13 @@ import {
   CheckCircle,
 } from "lucide-react"
 import { useState, useRef } from "react"
-// import Navigation from "@/components/layout/NavigationOrb"
+import milestoneOne from "@/public/images/homepage/pexels-chokniti-khongchum-1197604-2280551.jpg"
+import milestoneTwo from "@/public/images/homepage/hero-drone.jpg"
+import milestoneThree from "@/public/images/homepage/pexels-suzyhazelwood-1098515.jpg"
+import milestoneFour from "@/public/images/homepage/pexels-googledeepmind-17483908.jpg"
+import natureImage from "@/public/images/homepage/pexels-chokniti-khongchum-1197604-2280568.jpg"
+import heroImage from "@/public/images/homepage/seeds-from-drone-2.jpg"
+
 
 export default function HomePageComponent() {
   const [showVideo, setShowVideo] = useState(false)
@@ -27,6 +33,8 @@ export default function HomePageComponent() {
     target: timelineRef,
     offset: ["start end", "end start"],
   })
+
+  const videoSrc = "/video/dronefootage.mp4"
 
   const fadeInAnimationVariants = {
     initial: {
@@ -57,7 +65,7 @@ export default function HomePageComponent() {
       title: "Inception & Research",
       description:
         "TerraDrop was born out of a vision to transform environmental restoration through drone technology. Our early efforts focused on research, experimenting with seed pod designs and prototyping drone hardware capable of navigating diverse terrains.",
-      image: "/placeholder.svg?height=400&width=600&text=Research+Lab",
+      image: milestoneOne,
       achievements: ["First prototype developed", "Seed pod design patented", "Initial funding secured"],
       intensity: "light",
     },
@@ -66,7 +74,7 @@ export default function HomePageComponent() {
       title: "First Pilot Projects",
       description:
         "We transitioned from research to real-world application, launching our first pilot programs in critically affected regions. Using early-generation drones, we successfully deployed over 10,000 seed pods, proving the technical feasibility of drone-based reforestation.",
-      image: "/placeholder.svg?height=400&width=600&text=First+Pilot+Project",
+      image: milestoneTwo,
       achievements: ["10,000+ seeds deployed", "3 pilot locations established", "98% germination rate achieved"],
       intensity: "medium",
     },
@@ -75,7 +83,7 @@ export default function HomePageComponent() {
       title: "Global Expansion",
       description:
         "2022 marked our transition from local pilots to a global environmental movement. We expanded into new regions, partnering with organizations and governments, leading to over 100,000 trees being planted across diverse ecosystems.",
-      image: "/placeholder.svg?height=400&width=600&text=Global+Expansion",
+      image: milestoneThree,
       achievements: ["100,000+ trees planted", "10 countries reached", "50+ partnerships formed"],
       intensity: "strong",
     },
@@ -84,13 +92,13 @@ export default function HomePageComponent() {
       title: "Innovation & Future",
       description:
         "We integrated advanced AI into our drones, allowing real-time terrain mapping and optimized seed distribution. Our vision is to make large-scale reforestation more efficient, intelligent, and ecologically sound for future generations.",
-      image: "/placeholder.svg?height=400&width=600&text=AI+Innovation",
+      image: milestoneFour,
       achievements: ["AI integration completed", "500K+ trees planted", "Carbon offset verified"],
       intensity: "vibrant",
     },
   ]
 
-  // Timeline progress animation
+  
   const timelineProgress = useTransform(scrollYProgress, [0, 1], ["0%", "100%"])
 
   // Get gradient classes based on intensity
@@ -133,7 +141,7 @@ export default function HomePageComponent() {
       <section className="relative w-full h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <Image
-            src="/placeholder.svg?height=1080&width=1920&text=Drone+Reforestation"
+            src={heroImage}
             alt="Drone planting trees over deforested land"
             fill
             className="object-cover"
@@ -298,7 +306,7 @@ export default function HomePageComponent() {
           >
             <div className="relative rounded-3xl overflow-hidden shadow-2xl">
               <Image
-                src="/placeholder.svg?height=600&width=800&text=Drone+Technology"
+                src={natureImage}
                 alt="Drone dropping a seed pod"
                 width={800}
                 height={600}
@@ -425,7 +433,7 @@ export default function HomePageComponent() {
                 >
                   <X className="h-8 w-8" />
                 </button>
-                <video src="/placeholder.mp4" controls autoPlay className="w-full h-full rounded-2xl shadow-2xl" />
+                <video src={videoSrc} controls autoPlay className="w-full h-full rounded-2xl shadow-2xl" />
               </div>
             </div>
           )}
