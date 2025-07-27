@@ -12,7 +12,6 @@ export default function SideNav() {
   const navItems = [
     { name: "Home", href: "/", icon: Home },
     { name: "About Us", href: "/about", icon: Info },
-    { name: "How It Works", href: "/how-it-works", icon: Settings },
     { name: "Projects", href: "/projects", icon: Leaf },
     { name: "Donate", href: "/donate", icon: DollarSign },
     { name: "Contact", href: "/contact", icon: Mail },
@@ -27,7 +26,7 @@ export default function SideNav() {
         closed: { width: "64px" },
       }}
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
-      className="fixed left-0 top-0 h-full bg-math backdrop-blur-md border-r-8 border-r-[#ffffff2f] z-50 flex flex-col items-start py-4  border-math"
+      className="fixed left-0 top-0 h-full bg-math border-r-8 border-r-[#ffffff2f] z-50 flex flex-col items-start py-4  border-math"
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >

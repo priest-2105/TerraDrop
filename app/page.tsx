@@ -11,9 +11,11 @@ import research from "@/public/images/homepage/pexels-chokniti-khongchum-1197604
 import innovation from "@/public/images/homepage/pexels-googledeepmind-17483908.jpg"
 import expansion from "@/public/images/homepage/pexels-suzyhazelwood-1098515.jpg"
 import firstProject from "@/public/images/homepage/seeds-from-drone-2.jpg"
+import { useState } from "react"
 
 
 export default function HomePage() {
+  const [showVideo, setShowVideo] = useState(false)
   const fadeInAnimationVariants = {
     initial: {
       opacity: 0,
@@ -27,6 +29,8 @@ export default function HomePage() {
       },
     }),
   }
+
+  const droneFootage = "/images/video/dronefootage.mp4"
 
   return (
     <div className="flex flex-col min-h-screen bg-math text-soil-brown font-roboto">
@@ -264,8 +268,9 @@ export default function HomePage() {
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
+            {/* Thumbnail image or overlay */}
             <Image
-              src="/placeholder.svg?height=720&width=1280"
+              src={"/images/homepage/hero-drone.jpg"}
               alt="Drone footage thumbnail"
               layout="fill"
               objectFit="cover"
@@ -277,11 +282,32 @@ export default function HomePage() {
                 className="text-[#f1f1f1] hover:text-neon-green transition-colors duration-300"
                 size="icon"
                 aria-label="Play video"
+                onClick={() => setShowVideo(true)}
               >
                 <PlayCircle className="h-20 w-20 md:h-24 md:w-24" />
               </Button>
             </div>
             <p className="sr-only">Click to watch drone reforestation video</p>
+            {/* Video Modal Overlay */}
+            {showVideo && (
+              <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80">
+                <div className="relative w-full max-w-4xl aspect-video">
+                  <button
+                    className="absolute top-2 right-2 z-10 text-white bg-black/50 rounded-full p-2 hover:bg-black/80"
+                    onClick={() => setShowVideo(false)}
+                    aria-label="Close video"
+                  >
+                    &#10005;
+                  </button>
+                  <video
+                    src={droneFootage}
+                    controls
+                    autoPlay
+                    className="w-full h-full rounded-xl shadow-2xl bg-black"
+                  />
+                </div>
+              </div>
+            )}
           </motion.div>
           <motion.p
             className="mt-8 text-lg max-w-3xl mx-auto"
